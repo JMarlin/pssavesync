@@ -1,0 +1,3 @@
+[submodule "memcardrex"]
+	path = memcardrex
+	url = https://github.com/ShendoXT/memcardrex.git
