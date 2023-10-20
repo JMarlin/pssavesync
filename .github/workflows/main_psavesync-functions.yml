@@ -17,8 +17,11 @@ jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
+
       - name: 'Checkout GitHub Action'
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
         uses: actions/setup-dotnet@v1
