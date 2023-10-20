@@ -1,9 +1,9 @@
 function getSaveDetails([string] $cardPath) {
 
-	Invoke-RestMethod `
+	Invoke-WebRequest `
 		-Method POST `
-		-Uri "https://localhost:7084/Saves" `
-		-Body "`"$([Convert]::ToBase64String([System.IO.File]::ReadAllBytes($cardPath)))`"" `
+		-Uri "http://localhost:7071/api/PushSave" `
+		-Body "$([Convert]::ToBase64String([System.IO.File]::ReadAllBytes($cardPath)))" `
 		-ContentType "application/json" `
 		-SkipCertificateCheck
 }
