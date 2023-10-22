@@ -45,12 +45,7 @@ namespace psavesync {
                 .Select(SaveRecord.FromCardSlot(card)).First();
 
             //Add a save
-            var save = new Save {
-                ProductCode = saveRecord.ProductCode,
-                Identifier = saveRecord.SaveName,
-                Blocks = Enumerable.Range(0, 1).Select(i => new Block { Data = saveRecord.FirstBlockData, Index = i }).ToArray()
-            };
-
+            var save = new Save(card, Enumerable.Range(0, 15).First(i => card.saveType[i] == 1));
             _dbContext.Save.Add(save);
             _dbContext.SaveChanges();
 
